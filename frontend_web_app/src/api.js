@@ -71,3 +71,46 @@ export async function loginUser(loginData) {
     errors: { form: "Login failed. Please check your credentials." }
   };
 }
+
+/**
+ * PUBLIC_INTERFACE
+ * Simulate fetching user profile info from "API".
+ * @returns {Promise<{success: boolean, user?: object, message?: string}>}
+ */
+export async function getUserProfile() {
+  // Simulate network delay
+  await new Promise(res => setTimeout(res, 600));
+  // Return a mock user profile (replace with actual user data in real app)
+  return {
+    success: true,
+    user: {
+      name: "Sample Donor",
+      email: "user@example.com",
+      bloodType: "A+",
+      wantsToDonate: true,
+    }
+  };
+}
+
+/**
+ * PUBLIC_INTERFACE
+ * Simulate updating user profile info via "API".
+ * @param {object} profileData - profile data {name, email, bloodType, wantsToDonate}
+ * @returns {Promise<{success: boolean, message?: string, errors?: object}>}
+ */
+export async function updateUserProfile(profileData) {
+  await new Promise(res => setTimeout(res, 800));
+  // Simulate validation error for specific bad email
+  if (profileData.email === "fail@update.com") {
+    return {
+      success: false,
+      message: "Could not update profile.",
+      errors: { email: "Email is invalid for update." }
+    };
+  }
+  // Otherwise, accept all data as valid
+  return {
+    success: true,
+    message: "Profile updated successfully."
+  };
+}

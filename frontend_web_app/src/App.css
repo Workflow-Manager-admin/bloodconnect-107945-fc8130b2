@@ -306,6 +306,9 @@ body, .App {
   padding: 8px 14px;
   font-weight: 500;
   font-size: 1.08rem;
+  margin-bottom: 1em;
+  border: 1.5px solid #b9e5c2;
+  box-shadow: 0 2.5px 13px rgba(25,170,56,0.03);
 }
 
 .bc-auth-form button[type="submit"],
